@@ -12,7 +12,7 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 git config --global core.autocrlf input
 
 # Install bash-it
-${BASEDIR}/bash-it/install --silent 
+${BASEDIR}/bash-it/install.sh --silent 
 
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
