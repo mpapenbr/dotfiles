@@ -20,8 +20,8 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
 
 # Install bash-it
 
-git -C "${BASHIT_DIR}" submodule sync --quiet --recursive
-git submodule update --init --recursive "${BASHIT_DIR}"
+git -C "${BASHIT_DIR}" submodule sync --quiet 
+git submodule update --init --depth 1 "${BASHIT_DIR}"
 ${BASEDIR}/bash-it/install.sh --silent 
 
 # Remaining stuff installing via Dotbot
