@@ -2,6 +2,3 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
-[submodule "bash-it"]
-	path = bash-it
-	url = https://github.com/Bash-it/bash-it.git
