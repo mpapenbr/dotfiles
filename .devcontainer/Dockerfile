@@ -7,6 +7,11 @@
 # https://github.com/microsoft/vscode-dev-containers/tree/v0.101.1/containers/ubuntu-18.04-git/.devcontainer/Dockerfile
 FROM mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu-18.04
 
+# ugly workaround for ssl-host-key-checking
+# otherwise we can't access private repos
+RUN mkdir -p /root/.ssh \
+    && chmod 700 /root/.ssh \
+    && echo "StrictHostKeyChecking no" >> /root/.ssh/config
 # ** [Optional] Uncomment this section to install additional packages. **
 #
 # ENV DEBIAN_FRONTEND=noninteractive
