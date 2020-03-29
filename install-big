@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -e
+
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
+
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+BASHIT_DIR="bash-it"
+
+# workaround for VS code dev container
+# (when running in Windows this may be set to auto which would havily disrupt the bash scripts)
+if [[ "$OSTYPE" == "msys" ]]; then 
+    echo "Do nothing about autocrlf"
+else 
+    echo "Changing core.autocrlf to input"
+    git config --global core.autocrlf input
+fi    
+
+
+cd "${BASEDIR}"
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${DOTBOT_DIR}"
+
+# Install bash-it
+
+#git -C "${BASHIT_DIR}" submodule sync --quiet 
+#git submodule update --init --depth 1 "${BASHIT_DIR}"
+#${BASEDIR}/bash-it/install.sh --silent 
+
+# Remaining stuff installing via Dotbot
+echo "Digns"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
