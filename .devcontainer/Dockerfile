@@ -11,7 +11,9 @@ FROM mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu-18.04
 # otherwise we can't access private repos
 RUN mkdir -p /root/.ssh \
     && chmod 700 /root/.ssh \
-    && echo "StrictHostKeyChecking no" >> /root/.ssh/config
+    && echo "StrictHostKeyChecking no" >> /root/.ssh/config \
+    # ensure dotfiles will be checked out with the correct *nix settings
+    && git config --global core.autocrlf input
 # ** [Optional] Uncomment this section to install additional packages. **
 #
 # ENV DEBIAN_FRONTEND=noninteractive
