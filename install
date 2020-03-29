@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
-echo "I do nothing"
+echo "Configuring bash"
+
+test -f ~/.bashrc && cp ~/.bashrc ~/.bashrc.bak && rm ~/.bashrc
+ln -s ~/dotfiles/bashrc.bash ~/.bashrc
+ln -s ~/dotfiles/bashalias.bash ~/.bash_aliases
+
+echo "Configuring git"
+rm ~/.gitconfig && ln -s ~/dotfiles/gitconfig ~/.gitconfig
+

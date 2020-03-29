@@ -1,0 +1,28 @@
+[include]
+	path=.gitconfig.local
+	
+  
+[push]
+  default = simple
+   
+[color]
+  ui = true
+  
+[diff]
+    renamelimit = 0
+[merge]
+    renamelimit = 0
+   
+[log]
+  decorate = full
+
+  [rebase]
+    autostash = true
+   
+[alias]
+  lg = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short --graph --decorate -n10
+  gr = log --decorate --graph --pretty=format:'%C(magenta)%d%Creset %C(bold red)%h%Creset %C(white)%s%Creset (%C(green)%an%Creset - %C(cyan)%ar%Creset)'
+  gerrit = !sh -c 'git push origin HEAD:refs/for/$1' -
+  st = status
+  co = checkout
+ 

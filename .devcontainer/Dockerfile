@@ -13,7 +13,7 @@ RUN mkdir -p /root/.ssh \
     && chmod 700 /root/.ssh \
     && echo "StrictHostKeyChecking no" >> /root/.ssh/config \
     # ensure dotfiles will be checked out with the correct *nix settings
-    # && git config --global core.autocrlf input
+    && git config --global core.autocrlf input
 # ** [Optional] Uncomment this section to install additional packages. **
 #
 # ENV DEBIAN_FRONTEND=noninteractive
